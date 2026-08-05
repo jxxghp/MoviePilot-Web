@@ -82,7 +82,7 @@
           <div class="relative">
             <div class="relative bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/20 overflow-hidden">
               <!-- Carousel Container -->
-              <div class="relative h-96 rounded-2xl overflow-hidden">
+              <div class="relative aspect-video rounded-2xl overflow-hidden bg-slate-950">
                 <div 
                   v-for="(image, index) in carouselImages" 
                   :key="index"
@@ -190,7 +190,7 @@
             🧩 强大的插件生态系统
           </h2>
           <p class="text-xl text-white/70 max-w-3xl mx-auto">
-            MoviePilot 采用插件化架构设计，拥有 300+ 官方和社区插件，<br />
+            MoviePilot 采用插件化架构设计，拥有 400+ 官方和社区插件，<br />
             让您可以根据需求自由组合功能，打造专属的媒体管理方案
           </p>
         </div>
@@ -302,7 +302,7 @@
             开始您的自动化之旅
           </h2>
           <p class="text-xl text-white/80 mb-10 leading-relaxed">
-            加入数千名用户的行列，体验最智能的媒体库管理解决方案
+            加入数万名用户的行列，体验最智能的媒体库管理解决方案
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
@@ -411,17 +411,18 @@ import synologyChatIcon from './assets/integrations/synologychat.png'
 import flycowIcon from './assets/integrations/fnnas.png'
 import ugreenNasIcon from './assets/integrations/ugreennas.png'
 import vocechatIcon from './assets/integrations/vocechat.png'
-import dashboardImage from './assets/dashboard.png'
-import rankingImage from './assets/ranking.png'
-import pluginImage from './assets/plugin.png'
-import subscribeImage from './assets/subscribe.png'
+import dashboardImage from './assets/dashboard.jpg'
+import recommendImage from './assets/recommend.jpg'
+import pluginImage from './assets/plugin.jpg'
+import subscribeImage from './assets/subscribe.jpg'
+import calendarImage from './assets/calendar.jpg'
 
 // 轮播图数据
 const carouselImages = ref([
   {
-    url: rankingImage,
-    title: "流行趋势 - 智能推荐",
-    description: "基于热度和评分的智能推荐系统，发现最新最热的影视内容"
+    url: dashboardImage,
+    title: "仪表盘 - 统一管理",
+    description: "直观的数据统计和媒体库管理，一目了然掌控全局"
   },
   {
     url: subscribeImage,
@@ -431,12 +432,17 @@ const carouselImages = ref([
   {
     url: pluginImage,
     title: "插件市场 - 丰富生态",
-    description: "200+ 官方和社区插件，一键安装，扩展无限可能"
+    description: "400+ 官方和社区插件，一键安装，扩展无限可能"
   },
   {
-    url: dashboardImage,
-    title: "仪表盘 - 统一管理",
-    description: "直观的数据统计和媒体库管理，一目了然掌控全局"
+    url: recommendImage,
+    title: "智能推荐 - 发现精彩",
+    description: "聚合流行趋势、正在热映和多平台榜单，轻松发现最新热门内容"
+  },
+  {
+    url: calendarImage,
+    title: "订阅日历 - 更新尽览",
+    description: "按日期集中查看订阅更新与入库状态，追剧计划清晰直观"
   }
 ])
 
