@@ -1,8 +1,8 @@
-import dashboardImage from '../assets/dashboard.jpg'
-import recommendImage from '../assets/recommend.jpg'
-import subscribeImage from '../assets/subscribe.jpg'
-import calendarImage from '../assets/calendar.jpg'
-import pluginImage from '../assets/plugin.jpg'
+import dashboardImage from '../assets/dashboard.png'
+import recommendImage from '../assets/recommend.png'
+import subscribeImage from '../assets/subscribe.png'
+import calendarImage from '../assets/calendar.png'
+import pluginImage from '../assets/plugin.png'
 
 import plexIcon from '../assets/plex.png'
 import embyIcon from '../assets/emby.png'
