@@ -20,7 +20,7 @@
           </h2>
 
           <p class="text-base text-slate-300/85 leading-relaxed mb-8">
-            MoviePilot 原生内嵌受权限边界保护的多模态智能助手，绝非简单问答陪聊——它能直接读取系统上下文、组合调用业务工具与 <code class="px-1.5 py-0.5 rounded bg-white/10 text-violet-200 font-mono text-xs">SKILL.md</code> 技能流程，并对外提供标准 HTTP MCP 接口。
+            内嵌权限可控的多模态助手，可读取系统上下文、调用业务工具与 <code class="px-1.5 py-0.5 rounded bg-white/10 text-violet-200 font-mono text-xs">SKILL.md</code> 技能，并开放标准 HTTP MCP 接口。
           </p>
 
           <div class="space-y-4 mb-8">
@@ -112,7 +112,7 @@
                   <!-- User Prompt 1 -->
                   <div class="flex justify-end">
                     <div class="max-w-[85%] px-4 py-3 rounded-2xl rounded-tr-sm bg-gradient-to-r from-violet-600 to-indigo-600 text-sm text-white shadow-md">
-                      帮我搜一下《沙丘2》优先 2160p 杜比视界且免费的种子，如果媒体库还没有就直接下载。
+                      搜一下《沙丘2》2160p 杜比视界免费种，未入库就直接下载。
                     </div>
                   </div>
 
@@ -134,8 +134,8 @@
                         </span>
                       </div>
                       <div class="p-4 rounded-2xl rounded-tl-sm bg-white/[0.04] border border-white/[0.08] text-sm text-slate-200 leading-relaxed">
-                        已确认媒体库中尚无《沙丘2 (2024)》，从已启用站点筛选出最佳免费资源
-                        <span class="text-violet-300 font-mono text-xs">Dune.Part.Two.2024.2160p.UHD.BluRay.DV.HDR</span>（做种 96），已投递至 qBittorrent 并在下载完成后自动硬链接整理入库。
+                        媒体库尚无《沙丘2 (2024)》，已优选免费资源
+                        <span class="text-violet-300 font-mono text-xs">Dune.Part.Two.2024.2160p.UHD.BluRay.DV.HDR</span>（做种 96）投递至 qBittorrent，完成后自动硬链接入库。
                       </div>
                     </div>
                   </div>
@@ -143,7 +143,7 @@
                   <!-- User Prompt 2 -->
                   <div class="flex justify-end">
                     <div class="max-w-[85%] px-4 py-2.5 rounded-2xl rounded-tr-sm bg-white/[0.08] border border-white/10 text-sm text-slate-100">
-                      🎙️ [语音转写] 顺便分析下昨晚那条失败的音乐专辑整理记录，能修就自动重试。
+                      🎙️ [语音] 分析昨晚失败的专辑整理记录，能修就重试。
                     </div>
                   </div>
 
@@ -154,14 +154,14 @@
                     </div>
                     <div class="flex-1">
                       <div class="p-3.5 rounded-2xl rounded-tl-sm bg-white/[0.04] border border-white/[0.08] text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        已调用技能 <code class="text-cyan-300 font-mono">transfer-failed-retry</code> 核对 MusicBrainz 双碟发行 UUID，已完成逐曲映射并重新整理入库，同步写入 FLAC 内嵌封面与逐字歌词。
+                        已调用 <code class="text-cyan-300 font-mono">transfer-failed-retry</code> 核对 MusicBrainz 双碟信息，重新整理入库并补全封面与歌词。
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-slate-500">
-                  <span>支持 Web 全屏面板 · 微信/Telegram 语音图片 · 本地 CLI 终端</span>
+                  <span>Web 全屏 · 微信/Telegram 语音图片 · 本地 CLI</span>
                   <span class="text-emerald-400 font-mono">● Agent Ready</span>
                 </div>
               </div>
@@ -174,7 +174,7 @@
                 </div>
 
                 <div class="mt-6 pt-3 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
-                  <span>默认监听 API 端口 <code class="text-violet-300 font-mono">3001</code> · 自动收敛本地高风险系统工具暴露面</span>
+                  <span>默认端口 <code class="text-violet-300 font-mono">3001</code> · 自动收敛高风险工具暴露面</span>
                   <span class="font-mono text-cyan-300">/api/v1/mcp</span>
                 </div>
               </div>

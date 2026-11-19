@@ -25,10 +25,10 @@
           class="inline-flex items-center gap-2.5 pl-2.5 pr-3.5 py-1 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-xs sm:text-sm text-slate-200 mb-8 transition-all duration-200 group shadow-lg shadow-black/20"
         >
           <span class="px-2 py-0.5 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 text-[11px] font-semibold text-white">
-            V3 全新架构
+            V3 架构
           </span>
           <span class="text-slate-300 group-hover:text-white transition-colors">
-            影视 + 音乐双栖自动化 · 统一媒体身份 · AI 智能体与原生 MCP
+            影视与音乐自动化 · 统一媒体身份 · AI 与 MCP
           </span>
           <svg
             class="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 group-hover:text-white transition-all"
@@ -49,8 +49,8 @@
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-base sm:text-lg lg:text-xl text-slate-300/90 max-w-3xl mx-auto leading-relaxed mb-10">
-          围绕<strong class="font-semibold text-white">电影、电视剧、动漫与音乐</strong>打造的一站式自动化引擎。从多源发现、订阅追更、多站点择优下载、无损硬链接刮削整理，到媒体服务器刷新与多模态 AI 智能体协同，优雅掌控每一份数字珍藏。
+        <p class="text-base sm:text-lg lg:text-xl text-slate-300/90 max-w-2xl mx-auto leading-relaxed mb-10">
+          面向<strong class="font-semibold text-white">电影、剧集、动漫与音乐</strong>的一站式自动化管理工具，打通订阅追更、择优下载、无损整理与 AI 协同。
         </p>
 
         <!-- Primary & Secondary CTAs -->
@@ -208,7 +208,7 @@
                 <svg class="w-3.5 h-3.5 text-violet-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
                 </svg>
-                点击查看全尺寸原图
+                点击查看原图
               </div>
             </div>
 
@@ -232,11 +232,11 @@
               </div>
             </div>
 
-            <!-- Dedicated Screenshot Description & Highlights Panel -->
-            <div class="p-6 sm:p-8 bg-gradient-to-b from-[#0d1224] to-[#090d1a] border-t border-white/[0.06]">
-              <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <!-- Compact Screenshot Caption & Highlights Bar -->
+            <div class="px-5 py-5 sm:px-7 sm:py-6 bg-gradient-to-b from-[#0d1224] to-[#090d1a] border-t border-white/[0.06]">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
                 <div class="lg:col-span-7">
-                  <div class="flex items-center gap-2.5 mb-2.5">
+                  <div class="flex items-center gap-2.5 mb-2">
                     <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-violet-500/15 text-violet-300 border border-violet-400/25">
                       {{ activeSlide.badge }}
                     </span>
@@ -244,22 +244,22 @@
                       0{{ currentSlide + 1 }} / 0{{ showcaseSlides.length }}
                     </span>
                   </div>
-                  <h2 class="text-xl sm:text-2xl font-bold text-white mb-2.5">
+                  <h2 class="text-lg sm:text-xl font-bold text-white mb-1.5">
                     {{ activeSlide.title }}
                   </h2>
-                  <p class="text-sm sm:text-base text-slate-300/85 leading-relaxed">
+                  <p class="text-sm text-slate-300/85 leading-relaxed">
                     {{ activeSlide.description }}
                   </p>
                 </div>
 
-                <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div class="lg:col-span-5 grid grid-cols-2 gap-2">
                   <div
                     v-for="point in activeSlide.highlights"
                     :key="point"
-                    class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.07] text-xs sm:text-sm text-slate-200"
+                    class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.07] text-xs text-slate-200"
                   >
                     <span class="w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0"></span>
-                    <span>{{ point }}</span>
+                    <span class="truncate">{{ point }}</span>
                   </div>
                 </div>
               </div>
@@ -288,7 +288,7 @@
             <div class="flex items-center justify-between mb-4">
               <div>
                 <h3 class="text-lg font-bold text-white">{{ activeSlide.title }}</h3>
-                <p class="text-xs sm:text-sm text-slate-400">{{ activeSlide.tab }} · 按左右方向键可快速切换</p>
+                <p class="text-xs sm:text-sm text-slate-400">{{ activeSlide.tab }} · 左右方向键切换</p>
               </div>
               <button
                 type="button"

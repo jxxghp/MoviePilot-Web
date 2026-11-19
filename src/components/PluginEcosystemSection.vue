@@ -7,11 +7,11 @@
           <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-400"></span>
           <span>Plugin Ecosystem</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-          400+ 插件生态，按需拼装无限可能
+        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
+          400+ 插件生态，按需自由扩展
         </h2>
         <p class="text-base sm:text-lg text-slate-400 leading-relaxed">
-          核心保持克制轻量，高阶需求交由丰富的官方与社区插件自由延展。V3 全新引入虚拟插件分身、多仓库来源绑定与稳定插件 SDK，让多实例隔离运行前所未有地优雅。
+          核心保持轻量克制，高阶场景由插件按需延展；V3 原生支持虚拟分身与多仓库换源。
         </p>
       </div>
 
@@ -36,9 +36,9 @@
       <div class="rounded-3xl p-6 sm:p-8 bg-white/[0.025] border border-white/[0.08] backdrop-blur-md">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
-            <h3 class="text-lg sm:text-xl font-bold text-white">热门扩展场景一览</h3>
+            <h3 class="text-lg sm:text-xl font-bold text-white">热门扩展场景</h3>
             <p class="text-xs sm:text-sm text-slate-400 mt-1">
-              覆盖站点养护、第三方榜单联动、观影限速、健康体检与个性化界面美化
+              站点养护、榜单同步、观影限速与界面美化
             </p>
           </div>
           <div class="flex flex-wrap gap-3">

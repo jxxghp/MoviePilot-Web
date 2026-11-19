@@ -8,11 +8,11 @@
           <div class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[560px] h-[280px] rounded-full bg-violet-500/25 blur-[100px]"></div>
 
           <div class="relative max-w-2xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-5">
-              开启优雅省心的媒体库自动化之旅
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
+              即刻开启媒体库自动化
             </h2>
-            <p class="text-base sm:text-lg text-slate-300/90 leading-relaxed mb-9">
-              完全开源免费，模块化清晰易扩展。立即部署 MoviePilot，让检索、追更、下载、刮削整理与智能体协同井然有序。
+            <p class="text-base sm:text-lg text-slate-300/90 leading-relaxed mb-8">
+              开源免费，轻量易扩展，让影视与音乐馆藏始终井然有序。
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -32,7 +32,7 @@
                 rel="noopener noreferrer"
                 class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 transition-all duration-200"
               >
-                <span>阅读官方使用文档</span>
+                <span>阅读使用文档</span>
               </a>
               <a
                 href="https://t.me/moviepilot_channel"
@@ -40,7 +40,7 @@
                 rel="noopener noreferrer"
                 class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-medium text-slate-200 hover:text-white bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 transition-all duration-200"
               >
-                <span>Telegram 发布频道</span>
+                <span>Telegram 频道</span>
               </a>
             </div>
           </div>
@@ -54,7 +54,7 @@
         <!-- Multi-Repo Ecosystem Bar -->
         <div class="mb-14 pb-12 border-b border-white/[0.06]">
           <div class="text-xs font-mono uppercase tracking-wider text-slate-500 mb-4">
-            Open-Source Repository Architecture · 模块化开源仓库矩阵
+            Open-Source Repositories · 模块化开源仓库
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3.5">
             <a
@@ -85,11 +85,11 @@
               <img :src="iconImage" alt="MoviePilot" class="w-9 h-9 rounded-xl ring-1 ring-white/15" />
               <span class="text-xl font-bold text-white tracking-tight">MoviePilot</span>
             </div>
-            <p class="text-sm text-slate-400 leading-relaxed max-w-md mb-4">
-              基于前后端分离与插件化架构重新设计的个人媒体库自动化管理工具，聚焦影视与音乐核心自动化流程，稳定、纯净、易扩展。
+            <p class="text-sm text-slate-400 leading-relaxed max-w-md mb-3">
+              前后端分离、插件化架构的开源个人媒体库自动化管理工具，专注影视与音乐全流程整理。
             </p>
             <p class="text-xs text-slate-500 leading-relaxed max-w-md">
-              免责声明：本软件开源免费且不接受任何形式捐赠，仅供个人学习与技术交流使用，请勿用于任何商业或违法违规用途。
+              免责声明：本项目开源免费且不接受捐赠，仅供个人学习与技术交流，请勿用于商业或违法用途。
             </p>
           </div>
 
@@ -150,7 +150,7 @@
               </li>
               <li>
                 <a href="https://github.com/jxxghp/MoviePilot/issues" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
-                  Issue 问题反馈与建议
+                  Issue 问题反馈
                 </a>
               </li>
             </ul>

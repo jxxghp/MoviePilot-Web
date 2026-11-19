@@ -7,11 +7,11 @@
           <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
           <span>Quick Deployment</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-          灵活部署，几分钟构建自动化媒体中心
+        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
+          灵活部署，几分钟快速上线
         </h2>
         <p class="text-base sm:text-lg text-slate-400 leading-relaxed">
-          无论你使用群晖、飞牛、绿联、Unraid 等 NAS 容器环境，还是 Linux 服务器与 macOS 桌面主机，均有成熟稳健的官方部署方案。
+          全面适配主流 NAS 容器面板、Linux 服务器与 macOS 主机环境。
         </p>
       </div>
 
@@ -47,9 +47,9 @@
 
         <!-- Code Terminal & Guidance Card -->
         <div class="mp-card rounded-3xl overflow-hidden">
-          <div class="p-6 sm:p-8 border-b border-white/[0.07] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="p-6 sm:p-7 border-b border-white/[0.07] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h3 class="text-xl sm:text-2xl font-bold text-white mb-1.5">{{ activeDeploy.title }}</h3>
+              <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">{{ activeDeploy.title }}</h3>
               <p class="text-sm text-slate-300/85 leading-relaxed max-w-2xl">
                 {{ activeDeploy.description }}
               </p>
@@ -60,7 +60,7 @@
               rel="noopener noreferrer"
               class="shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium text-violet-200 bg-violet-500/15 hover:bg-violet-500/25 border border-violet-400/25 transition-colors"
             >
-              <span>查看完整配置指南</span>
+              <span>完整配置指南</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -85,7 +85,7 @@
                 <svg v-else class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
-                <span>{{ copied ? '已复制到剪贴板' : '一键复制命令' }}</span>
+                <span>{{ copied ? '已复制' : '复制命令' }}</span>
               </button>
             </div>
 
@@ -93,7 +93,7 @@
           </div>
 
           <!-- Deployment Tips -->
-          <div class="p-6 sm:p-7 bg-white/[0.015] border-t border-white/[0.06]">
+          <div class="p-5 sm:p-6 bg-white/[0.015] border-t border-white/[0.06]">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div
                 v-for="tip in activeDeploy.tips"
@@ -114,9 +114,9 @@
       <div class="max-w-6xl mx-auto">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
           <div>
-            <h3 class="text-xl sm:text-2xl font-bold text-white">多端客户端与周边部署生态</h3>
+            <h3 class="text-xl sm:text-2xl font-bold text-white">多端客户端与周边生态</h3>
             <p class="text-sm text-slate-400 mt-1">
-              搭配原生移动客户端、NAS 套件源、桌面安装包与大屏客户端，随时随地管理媒体中心
+              原生移动客户端、NAS 套件源、桌面安装版与浏览器扩展
             </p>
           </div>
           <a
@@ -125,7 +125,7 @@
             rel="noopener noreferrer"
             class="text-xs sm:text-sm font-medium text-violet-300 hover:text-violet-200 inline-flex items-center gap-1"
           >
-            <span>查看全部周边项目</span>
+            <span>查看全部周边</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
@@ -158,7 +158,7 @@
                 </svg>
               </div>
               <h4 class="text-base font-bold text-white mb-1">{{ proj.name }}</h4>
-              <div class="text-xs font-mono text-violet-300/80 mb-3">{{ proj.platform }}</div>
+              <div class="text-xs font-mono text-violet-300/80 mb-2.5">{{ proj.platform }}</div>
               <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">{{ proj.description }}</p>
             </div>
             <div class="mt-4 pt-3 border-t border-white/[0.06] text-xs font-mono text-slate-500 truncate">

@@ -7,15 +7,15 @@
           <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
           <span>Core Capabilities</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-          为重度影音与音乐收藏者深耕的硬核能力
+        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
+          专为家庭媒体中心打造的硬核能力
         </h2>
         <p class="text-base sm:text-lg text-slate-400 leading-relaxed">
-          从多数据源统一身份、精细化洗版策略、多网盘硬链接整理到 Rust 加速内核，每一处细节都针对真实家庭媒体中心场景打磨。
+          兼顾精准识别、多盘流转与高性能底座，从容管理大规模影音馆藏。
         </p>
       </div>
 
-      <!-- Bento Grid (2 wide + 3 normal = 7 columns -> 3-col layout: row1 [2+1], row2 [1+1+1] or [1+2]) -->
+      <!-- Bento Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
           v-for="feature in coreFeatures"
@@ -34,7 +34,7 @@
           ></div>
 
           <div class="relative">
-            <div class="flex items-center justify-between gap-4 mb-6">
+            <div class="flex items-center justify-between gap-4 mb-5">
               <div class="w-12 h-12 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center justify-center text-violet-300 group-hover:scale-105 group-hover:border-violet-400/30 transition-all duration-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" :d="feature.iconPath" />
@@ -45,10 +45,10 @@
               </span>
             </div>
 
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3.5 tracking-tight">
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
               {{ feature.title }}
             </h3>
-            <p class="text-sm sm:text-base text-slate-300/85 leading-relaxed mb-6">
+            <p class="text-sm sm:text-base text-slate-300/85 leading-relaxed mb-5">
               {{ feature.description }}
             </p>
           </div>
@@ -64,12 +64,12 @@
           </div>
         </div>
 
-        <!-- Additional 6th Card to Complete Clean 3x2 / Balanced Bento Grid -->
+        <!-- 6th Card -->
         <div class="mp-card rounded-3xl p-7 sm:p-8 overflow-hidden flex flex-col justify-between group lg:col-span-1">
           <div class="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-gradient-to-br from-rose-500/15 via-violet-500/10 to-transparent blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
 
           <div class="relative">
-            <div class="flex items-center justify-between gap-4 mb-6">
+            <div class="flex items-center justify-between gap-4 mb-5">
               <div class="w-12 h-12 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center justify-center text-violet-300 group-hover:scale-105 group-hover:border-violet-400/30 transition-all duration-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
@@ -80,23 +80,23 @@
               </span>
             </div>
 
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3.5 tracking-tight">
-              按用户隔离通知与远程控制
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
+              多用户通知隔离与远控
             </h3>
-            <p class="text-sm sm:text-base text-slate-300/85 leading-relaxed mb-6">
-              支持精细化多用户权限管理与通知渠道隔离，操作回执精准送达发起人；支持多实例主机名标识及菜单/按钮远程交互控制。
+            <p class="text-sm sm:text-base text-slate-300/85 leading-relaxed mb-5">
+              细粒度权限与通知渠道隔离，回执精准送达发起人，支持聊天菜单与按钮远程操控。
             </p>
           </div>
 
           <div class="relative flex flex-wrap gap-2 pt-4 border-t border-white/[0.06]">
             <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/[0.04] text-slate-300 border border-white/[0.07]">
-              多用户通知隔离
+              多用户隔离
             </span>
             <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/[0.04] text-slate-300 border border-white/[0.07]">
-              WebPush 客户端推送
+              WebPush 推送
             </span>
             <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/[0.04] text-slate-300 border border-white/[0.07]">
-              多实例来源模板
+              多实例标识
             </span>
           </div>
         </div>

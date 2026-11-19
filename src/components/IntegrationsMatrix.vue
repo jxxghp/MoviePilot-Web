@@ -8,10 +8,10 @@
           <span>Seamless Integrations</span>
         </div>
         <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-5">
-          无缝融入你的现有数字家庭生态
+          无缝融入现有数字家庭生态
         </h2>
         <p class="text-base sm:text-lg text-slate-400 leading-relaxed">
-          广泛连接主流影视音乐元数据平台、家庭影院服务器、NAS 原生影视中心、BT/PT 下载器、云盘挂载存储以及即时通讯工具。
+          广泛连接主流元数据平台、媒体服务器、NAS 影院、下载器、网盘与通讯工具。
         </p>
       </div>
 
