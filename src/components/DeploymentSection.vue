@@ -3,22 +3,28 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Heading -->
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="mp-section-badge mb-4">
+        <div v-reveal.fade class="mp-section-badge mb-4">
           <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
           <span>Quick Deployment</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
+        <h2
+          v-reveal="{ variant: 'blur-up', delay: 70 }"
+          class="mp-display-heading text-3xl sm:text-5xl mb-4"
+        >
           灵活部署，几分钟快速上线
         </h2>
-        <p class="text-base sm:text-lg text-slate-400 leading-relaxed">
-          全面适配主流 NAS 容器面板、Linux 服务器与 macOS 主机环境。
+        <p v-reveal="{ variant: 'up', delay: 130 }" class="text-base sm:text-lg text-slate-400 leading-relaxed">
+          全面适配主流 NAS 容器面板、Linux 服务器与 macOS 主机环境，部署完成即可扫码或直连三端原生 App。
         </p>
       </div>
 
       <!-- Interactive Code Deployment Box -->
       <div class="max-w-5xl mx-auto mb-16">
         <!-- Method Selector Tabs -->
-        <div class="flex flex-wrap items-center justify-center gap-2.5 mb-6">
+        <div
+          v-reveal="{ variant: 'up', delay: 100 }"
+          class="flex flex-wrap items-center justify-center gap-2.5 mb-6"
+        >
           <button
             v-for="tab in deploymentTabs"
             :key="tab.id"
@@ -46,7 +52,7 @@
         </div>
 
         <!-- Code Terminal & Guidance Card -->
-        <div class="mp-card rounded-3xl overflow-hidden">
+        <div v-reveal="{ variant: 'scale', delay: 140 }" class="mp-apple-surface rounded-3xl overflow-hidden">
           <div class="p-6 sm:p-7 border-b border-white/[0.07] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">{{ activeDeploy.title }}</h3>
@@ -68,7 +74,7 @@
           </div>
 
           <!-- Code Block -->
-          <div class="bg-[#050711] p-5 sm:p-7 relative">
+          <div class="bg-[#04060d] p-5 sm:p-7 relative">
             <div class="flex items-center justify-between mb-3 pb-3 border-b border-white/[0.06]">
               <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
                 <span class="w-2.5 h-2.5 rounded-full bg-violet-400/80"></span>
@@ -112,11 +118,14 @@
 
       <!-- Multi-Platform Clients & Peripheral Ecosystem -->
       <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+        <div
+          v-reveal.up
+          class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6"
+        >
           <div>
             <h3 class="text-xl sm:text-2xl font-bold text-white">多端客户端与周边生态</h3>
             <p class="text-sm text-slate-400 mt-1">
-              原生移动客户端、NAS 套件源、桌面安装版与浏览器扩展
+              官方三端原生客户端、NAS 套件源、桌面安装版与浏览器扩展
             </p>
           </div>
           <a
@@ -134,11 +143,12 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <a
-            v-for="proj in ecosystemProjects"
+            v-for="(proj, idx) in ecosystemProjects"
             :key="proj.name"
             :href="proj.url"
             target="_blank"
             rel="noopener noreferrer"
+            v-reveal="{ variant: 'up', delay: idx * 80 }"
             class="mp-card rounded-2xl p-6 flex flex-col justify-between group"
           >
             <div>
@@ -151,7 +161,7 @@
                       : 'bg-white/[0.05] text-slate-300 border-white/10',
                   ]"
                 >
-                  {{ proj.official ? '官方客户端' : '社区生态' }}
+                  {{ proj.official ? '官方三端 App' : '社区生态' }}
                 </span>
                 <svg class="w-4 h-4 text-slate-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

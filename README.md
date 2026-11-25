@@ -21,6 +21,8 @@ yarn preview
 ## 目录结构
 
 - `public/`：站点 Favicon、Apple Touch Icon 与官方矢量 Logo
-- `src/data/siteContent.ts`：界面截图说明、核心特性、AI & MCP 示例、生态矩阵与部署指南数据层
-- `src/components/`：模块化页面分区组件（导航、交互视窗、自动化闭环、Bento 特性、AI 智能体与 MCP、插件生态、生态矩阵、部署指南与页脚）
-- `src/assets/`：产品实机截图与生态平台图标资源
+- `src/directives/reveal.ts`：类 Apple 官网滚动入场动效指令（`v-reveal`，基于共享 `IntersectionObserver` 并遵循 `prefers-reduced-motion`）
+- `src/composables/useScrollProgress.ts`：连续滚动视差、3D 展开与页面阅读进度计算钩子
+- `src/data/siteContent.ts`：Web 截图说明、三端原生 App 展区数据、核心特性、AI & MCP 示例、生态矩阵与部署指南数据层
+- `src/components/`：模块化页面分区组件（导航与进度条、首屏交互视窗、自动化闭环、三端原生客户端展区与真机边框、Bento 特性、AI 智能体与 MCP、插件生态、生态矩阵、部署指南与页脚）
+- `src/assets/`：Web 实机截图、三端原生客户端实机截图（`app/`）与生态平台图标资源（`integrations/`）

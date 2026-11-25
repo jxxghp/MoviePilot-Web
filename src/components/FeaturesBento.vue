@@ -1,25 +1,29 @@
 <template>
-  <section id="features" class="relative py-24 lg:py-32 scroll-mt-20">
+  <section id="features" class="relative py-24 lg:py-32 scroll-mt-20 border-t border-white/[0.06]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Heading -->
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="mp-section-badge mb-4">
+        <div v-reveal.fade class="mp-section-badge mb-4">
           <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
           <span>Core Capabilities</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
+        <h2
+          v-reveal="{ variant: 'blur-up', delay: 70 }"
+          class="mp-display-heading text-3xl sm:text-5xl mb-4"
+        >
           专为家庭媒体中心打造的硬核能力
         </h2>
-        <p class="text-base sm:text-lg text-slate-400 leading-relaxed">
-          兼顾精准识别、多盘流转与高性能底座，从容管理大规模影音馆藏。
+        <p v-reveal="{ variant: 'up', delay: 130 }" class="text-base sm:text-lg text-slate-400 leading-relaxed">
+          兼顾精准识别、多盘流转与全端高性能底座，从容管理大规模影音馆藏。
         </p>
       </div>
 
       <!-- Bento Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
-          v-for="feature in coreFeatures"
+          v-for="(feature, idx) in coreFeatures"
           :key="feature.title"
+          v-reveal="{ variant: 'up', delay: (idx % 3) * 90 }"
           :class="[
             'mp-card rounded-3xl p-7 sm:p-8 overflow-hidden flex flex-col justify-between group',
             feature.span === 'wide' ? 'lg:col-span-2' : 'lg:col-span-1',
@@ -65,7 +69,10 @@
         </div>
 
         <!-- 6th Card -->
-        <div class="mp-card rounded-3xl p-7 sm:p-8 overflow-hidden flex flex-col justify-between group lg:col-span-1">
+        <div
+          v-reveal="{ variant: 'up', delay: 180 }"
+          class="mp-card rounded-3xl p-7 sm:p-8 overflow-hidden flex flex-col justify-between group lg:col-span-1"
+        >
           <div class="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-gradient-to-br from-rose-500/15 via-violet-500/10 to-transparent blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
 
           <div class="relative">
@@ -84,7 +91,7 @@
               多用户通知隔离与远控
             </h3>
             <p class="text-sm sm:text-base text-slate-300/85 leading-relaxed mb-5">
-              细粒度权限与通知渠道隔离，回执精准送达发起人，支持聊天菜单与按钮远程操控。
+              细粒度权限与通知渠道隔离，回执精准送达发起人，支持聊天菜单、APNs 与多端消息中心即时联动。
             </p>
           </div>
 
@@ -93,7 +100,7 @@
               多用户隔离
             </span>
             <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/[0.04] text-slate-300 border border-white/[0.07]">
-              WebPush 推送
+              WebPush & APNs
             </span>
             <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/[0.04] text-slate-300 border border-white/[0.07]">
               多实例标识

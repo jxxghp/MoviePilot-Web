@@ -1,15 +1,18 @@
 <template>
-  <div class="min-h-screen bg-[#060812] text-slate-100 relative selection:bg-violet-500/30 selection:text-violet-100">
-    <!-- Sticky Glass Navigation -->
+  <div class="min-h-screen bg-[#04060d] text-[#f5f5f7] relative selection:bg-violet-500/30 selection:text-violet-100">
+    <!-- Sticky Apple-Style Glass Navigation & Scroll Progress Bar -->
     <NavBar />
 
     <!-- Main Content -->
     <main>
-      <!-- Hero & Unobstructed Interactive Product Showcase -->
+      <!-- Hero & Scroll-Driven Interactive Product Showcase -->
       <HeroShowcase />
 
       <!-- 5-Step End-to-End Automation Pipeline -->
       <WorkflowPipeline />
+
+      <!-- Tri-Platform Native Clients (iOS / Android / HarmonyOS NEXT) -->
+      <NativeAppSection />
 
       <!-- Core Capabilities Bento Grid -->
       <FeaturesBento />
@@ -36,6 +39,7 @@
 import NavBar from './components/NavBar.vue'
 import HeroShowcase from './components/HeroShowcase.vue'
 import WorkflowPipeline from './components/WorkflowPipeline.vue'
+import NativeAppSection from './components/NativeAppSection.vue'
 import FeaturesBento from './components/FeaturesBento.vue'
 import AiAgentSection from './components/AiAgentSection.vue'
 import PluginEcosystemSection from './components/PluginEcosystemSection.vue'

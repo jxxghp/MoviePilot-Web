@@ -33,6 +33,31 @@ import dingtalkIcon from '../assets/integrations/dingtalk.jpg'
 import feishuIcon from '../assets/integrations/feishu.png'
 import synologyChatIcon from '../assets/integrations/synologychat.png'
 import vocechatIcon from '../assets/integrations/vocechat.png'
+import u115Icon from '../assets/integrations/u115.png'
+import alipanIcon from '../assets/integrations/alipan.png'
+import rcloneIcon from '../assets/integrations/rclone.png'
+import smbIcon from '../assets/integrations/smb.png'
+
+import iosDiscoverImg from '../assets/app/ios-discover.jpg'
+import iosDetailImg from '../assets/app/ios-detail.jpg'
+import iosSubscriptionsImg from '../assets/app/ios-subscriptions.jpg'
+import iosDashboardImg from '../assets/app/ios-dashboard.jpg'
+import iosWorkflowImg from '../assets/app/ios-workflow.jpg'
+import iosMusicImg from '../assets/app/ios-music.jpg'
+
+import androidDiscoverImg from '../assets/app/android-discover.jpg'
+import androidDetailImg from '../assets/app/android-detail.jpg'
+import androidSubscriptionsImg from '../assets/app/android-subscriptions.jpg'
+import androidDashboardImg from '../assets/app/android-dashboard.jpg'
+import androidResourcesImg from '../assets/app/android-resources.jpg'
+import androidAppearanceImg from '../assets/app/android-appearance.jpg'
+
+import harmonyDiscoverImg from '../assets/app/harmony-discover.jpg'
+import harmonyDetailImg from '../assets/app/harmony-detail.jpg'
+import harmonySubscriptionsImg from '../assets/app/harmony-subscriptions.jpg'
+import harmonyLibrariesImg from '../assets/app/harmony-libraries.jpg'
+import harmonyMedalImg from '../assets/app/harmony-medal.jpg'
+import harmonyThemeImg from '../assets/app/harmony-theme.jpg'
 
 export interface NavItem {
   label: string
@@ -57,6 +82,66 @@ export interface PipelineStep {
   subtitle: string
   description: string
   iconPath: string
+}
+
+export type AppPlatformId = 'ios' | 'android' | 'harmony'
+export type AppSceneId = 'discover' | 'detail' | 'subscriptions' | 'dashboard'
+
+export interface AppSceneTab {
+  id: AppSceneId
+  label: string
+  subtitle: string
+}
+
+export interface AppPlatformProfile {
+  id: AppPlatformId
+  name: string
+  shortName: string
+  systemSupport: string
+  techStack: string
+  designLanguage: string
+  paletteHint: string
+  tagline: string
+  accentBadge: string
+  accentGlow: string
+  accentDot: string
+  highlights: string[]
+  screens: Record<AppSceneId, string>
+}
+
+export interface AppStorySlide {
+  label: string
+  platform: AppPlatformId
+  platformLabel: string
+  image: string
+  caption: string
+}
+
+export interface AppStoryChapter {
+  id: string
+  step: string
+  eyebrow: string
+  title: string
+  description: string
+  tags: string[]
+  slides: AppStorySlide[]
+}
+
+export interface AppArchitecturePillar {
+  badge: string
+  title: string
+  description: string
+  metrics: string
+  accent: string
+  iconPath: string
+}
+
+export interface AppReleaseArtifact {
+  platform: string
+  arch: string
+  packageHint: string
+  badge: string
+  accent: string
 }
 
 export interface FeatureItem {
@@ -116,6 +201,7 @@ export interface EcosystemProject {
 
 export const navItems: NavItem[] = [
   { label: '界面预览', href: '#showcase' },
+  { label: '三端客户端', href: '#native-app' },
   { label: '核心特性', href: '#features' },
   { label: 'AI 与 MCP', href: '#ai-agent' },
   { label: '插件生态', href: '#plugins' },
@@ -125,8 +211,8 @@ export const navItems: NavItem[] = [
 ]
 
 export const heroStats = [
-  { value: '影视 + 音乐', label: '全流程自动化' },
-  { value: '前后端分离', label: 'FastAPI + Vue 3 + Rust' },
+  { value: '影视 + 音乐', label: '全流程自动化整理' },
+  { value: '三端全原生 App', label: 'iOS · Android · 鸿蒙 NEXT' },
   { value: '400+ 插件', label: '热插拔与虚拟分身' },
   { value: 'AI & MCP', label: '内置助手与标准协议' },
 ]
@@ -229,7 +315,7 @@ export const pipelineSteps: PipelineStep[] = [
     step: '01',
     title: '多源订阅',
     subtitle: 'Discover & Subscribe',
-    description: '聚合主流影视与音乐源，多端一键添加订阅。',
+    description: '聚合影视与音乐榜单，Web 与三端原生 App 一键添加订阅。',
     iconPath:
       'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z',
   },
@@ -261,15 +347,302 @@ export const pipelineSteps: PipelineStep[] = [
     step: '05',
     title: '入库推送',
     subtitle: 'Refresh & Notify',
-    description: '即时刷新媒体库海报墙，按用户精准推送通知。',
+    description: '即时刷新媒体库海报墙，多渠道与原生 App 即时送达。',
     iconPath:
       'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z',
   },
 ]
 
+export const appSceneTabs: AppSceneTab[] = [
+  { id: 'discover', label: '发现首页', subtitle: '全屏影视 Hero · 继续观看 · 4+1 悬浮导航' },
+  { id: 'detail', label: '媒体详情', subtitle: '沉浸海报主视觉 · 一键订阅 / 播控 / 搜种' },
+  { id: 'subscriptions', label: '我的订阅', subtitle: '季集追更进度 · 影视与音乐统一追踪' },
+  { id: 'dashboard', label: '我的仪表盘', subtitle: '身份卡 · 社区 3D 勋章 · 馆藏实时统计' },
+]
+
+export const appPlatformProfiles: AppPlatformProfile[] = [
+  {
+    id: 'ios',
+    name: 'iOS / iPadOS',
+    shortName: 'iOS',
+    systemSupport: 'iPhone · iPad 自适应',
+    techStack: 'SwiftUI · Rust 内核',
+    designLanguage: 'Liquid Glass 流体玻璃',
+    paletteHint: '极简石墨 · MeshGradient 流光',
+    tagline: '遵循 Apple 原生交互，兼顾 iPhone 掌心操控与 iPad 侧栏工作台。',
+    accentBadge: 'bg-violet-500/15 text-violet-200 border-violet-400/30',
+    accentGlow: 'from-violet-500/30 via-indigo-500/20 to-transparent',
+    accentDot: 'bg-violet-400',
+    highlights: [
+      'Liquid Glass 4+1 悬浮导航与玻璃弹层',
+      'iPad 侧栏工作台与多列 Bento 布局',
+      'SceneKit 3D 社区勋章与背面凹雕',
+      '全格式 / STRM 播放、画中画与小组件',
+    ],
+    screens: {
+      discover: iosDiscoverImg,
+      detail: iosDetailImg,
+      subscriptions: iosSubscriptionsImg,
+      dashboard: iosDashboardImg,
+    },
+  },
+  {
+    id: 'android',
+    name: 'Android',
+    shortName: 'Android',
+    systemSupport: '手机 · 平板自适应',
+    techStack: 'Jetpack Compose · Rust 内核',
+    designLanguage: 'Material 3 Expressive',
+    paletteHint: '5 套色板 · 动态取色 · AMOLED 纯黑',
+    tagline: '纯原生 Compose 打造，大胶囊分页与自适应侧栏自然跟手。',
+    accentBadge: 'bg-emerald-500/15 text-emerald-200 border-emerald-400/30',
+    accentGlow: 'from-emerald-500/25 via-teal-500/15 to-transparent',
+    accentDot: 'bg-emerald-400',
+    highlights: [
+      '4+1 分体悬浮底栏与大胶囊分页',
+      'Material You 动态取色与 AMOLED 纯黑',
+      'OpenGL ES 3D 勋章实时浮雕渲染',
+      'Media3 全格式播放、锁屏播控与微件',
+    ],
+    screens: {
+      discover: androidDiscoverImg,
+      detail: androidDetailImg,
+      subscriptions: androidSubscriptionsImg,
+      dashboard: androidDashboardImg,
+    },
+  },
+  {
+    id: 'harmony',
+    name: 'HarmonyOS NEXT',
+    shortName: '鸿蒙 NEXT',
+    systemSupport: '手机 · 折叠屏 · 平板',
+    techStack: 'ArkTS / ArkUI · Rust 内核',
+    designLanguage: 'HarmonyOS 动态光感',
+    paletteHint: '鸿蒙智蓝等 5 套色板 · AMOLED 纯黑',
+    tagline: '纯血鸿蒙原生体验，沉浸光感与原生半模态带来丝滑反馈。',
+    accentBadge: 'bg-sky-500/15 text-sky-200 border-sky-400/30',
+    accentGlow: 'from-sky-500/30 via-blue-500/20 to-transparent',
+    accentDot: 'bg-sky-400',
+    highlights: [
+      '动态光感材质与多机型平滑回退',
+      '渐进模糊沉浸顶栏与原生半模态弹窗',
+      '一多断点自适应折叠屏与平板侧栏',
+      '3D 勋章、画中画后台续播与桌面卡片',
+    ],
+    screens: {
+      discover: harmonyDiscoverImg,
+      detail: harmonyDetailImg,
+      subscriptions: harmonySubscriptionsImg,
+      dashboard: harmonyLibrariesImg,
+    },
+  },
+]
+
+export const appStoryChapters: AppStoryChapter[] = [
+  {
+    id: 'libraries',
+    step: '01',
+    eyebrow: '沉浸视听',
+    title: '无遮挡媒体库与随身播放',
+    description:
+      '直连 Emby、Jellyfin、Plex 与主流 NAS 影院，支持全格式、STRM 播放及画中画续播。',
+    tags: ['10 模块自定义首页', '全格式 & STRM', '画中画续播'],
+    slides: [
+      {
+        label: '鸿蒙 · 媒体库',
+        platform: 'harmony',
+        platformLabel: 'HarmonyOS NEXT',
+        image: harmonyLibrariesImg,
+        caption: '无遮挡媒体库卡片与多源六宫格分类浏览',
+      },
+      {
+        label: 'Android · 发现页',
+        platform: 'android',
+        platformLabel: 'Android',
+        image: androidDiscoverImg,
+        caption: '全屏影视 Hero、继续观看与 4+1 悬浮底栏',
+      },
+    ],
+  },
+  {
+    id: 'subscribe-music',
+    step: '02',
+    eyebrow: '双栖追更',
+    title: '影视追更与音乐专辑闭环',
+    description:
+      '一屏追踪季集进度、追剧日历与订阅广场，音乐专辑支持一键订阅与曲目试听。',
+    tags: ['总进度一览', '订阅规则编辑', '音乐曲目试听'],
+    slides: [
+      {
+        label: 'iOS · 订阅总览',
+        platform: 'ios',
+        platformLabel: 'iOS · SwiftUI',
+        image: iosSubscriptionsImg,
+        caption: '追更总览进度、多类型筛选与快捷规则编辑',
+      },
+      {
+        label: 'iOS · 音乐专辑',
+        platform: 'ios',
+        platformLabel: 'iOS · 音乐播放',
+        image: iosMusicImg,
+        caption: '专辑元数据浏览、一键订阅与原生试听',
+      },
+    ],
+  },
+  {
+    id: 'medals',
+    step: '03',
+    eyebrow: '社区荣誉',
+    title: '7 枚 3D 社区勋章与我的面板',
+    description:
+      '三端原生 3D 渲染金属浮雕与背面凹雕，360° 翻转检视佩戴，搭配可编排数据面板。',
+    tags: ['7 枚 3D 勋章', '360° 浮雕检视', '自定义仪表盘'],
+    slides: [
+      {
+        label: '鸿蒙 · 3D 勋章',
+        platform: 'harmony',
+        platformLabel: 'HarmonyOS NEXT',
+        image: harmonyMedalImg,
+        caption: '360° 旋转检视金属浮雕与背面雕刻',
+      },
+      {
+        label: 'iOS · 勋章墙',
+        platform: 'ios',
+        platformLabel: 'iOS · 我的面板',
+        image: iosDashboardImg,
+        caption: '身份卡、荣誉勋章墙与月度入库统计',
+      },
+    ],
+  },
+  {
+    id: 'resources-workflow',
+    step: '04',
+    eyebrow: '硬核掌控',
+    title: '9 维站点筛选与原生工作流',
+    description:
+      'Rust 引擎毫秒级完成同规格资源聚合筛选，并支持多存储手动整理与原生节点画布。',
+    tags: ['9 维同规格聚合', '原生工作流画布', '多存储整理'],
+    slides: [
+      {
+        label: 'Android · 资源筛选',
+        platform: 'android',
+        platformLabel: 'Android · Rust 筛选',
+        image: androidResourcesImg,
+        caption: '按画质、编码与促销多维筛选，一键推送下载',
+      },
+      {
+        label: 'iOS · 工作流画布',
+        platform: 'ios',
+        platformLabel: 'iOS · 原生画布',
+        image: iosWorkflowImg,
+        caption: '纯原生缩放连线，随时调整工作流节点参数',
+      },
+    ],
+  },
+  {
+    id: 'themes',
+    step: '05',
+    eyebrow: '个性美学',
+    title: '三端专属色板与动态光感',
+    description:
+      '融合各平台原生设计语言，提供多套深浅色板、AMOLED 纯黑与实时交互预览。',
+    tags: ['AMOLED 纯黑', '多套原生色板', '实时交互预览'],
+    slides: [
+      {
+        label: '鸿蒙 · 动态光感',
+        platform: 'harmony',
+        platformLabel: 'HarmonyOS NEXT',
+        image: harmonyThemeImg,
+        caption: '5 套鸿蒙色板、纯黑模式与动态光感开关',
+      },
+      {
+        label: 'Android · 表现力色板',
+        platform: 'android',
+        platformLabel: 'Android',
+        image: androidAppearanceImg,
+        caption: '5 套表现力色板与系统动态配色预览',
+      },
+    ],
+  },
+]
+
+export const appArchitecturePillars: AppArchitecturePillar[] = [
+  {
+    badge: 'Rust 内核',
+    title: '一套核心，驱动三端',
+    description:
+      '协议编码、AI 流式解析、9 维筛选与动态插件逻辑沉淀于 Rust 内核，三端零漂移复用。',
+    metrics: 'UniFFI + ohos-rs NAPI',
+    accent: 'from-amber-500/20 via-orange-500/10 to-transparent',
+    iconPath:
+      'M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z',
+  },
+  {
+    badge: '安全边界',
+    title: '原生网络与硬件密钥隔离',
+    description:
+      '直用各端原生网络栈兼容自签名 HTTPS，凭据交由系统硬件级安全存储与同源校验保护。',
+    metrics: 'Keychain · Keystore · HUKS',
+    accent: 'from-emerald-500/20 via-teal-500/10 to-transparent',
+    iconPath:
+      'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+  },
+  {
+    badge: '单一事实源',
+    title: '品牌标识与多语言同步',
+    description:
+      '设计 Token、简繁英三语、36 枚服务 Logo 与 7 枚社区 3D 勋章统一管理，单向同步三端。',
+    metrics: '36 Logo · 7 枚勋章 · 3 语种',
+    accent: 'from-sky-500/20 via-indigo-500/10 to-transparent',
+    iconPath:
+      'M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3',
+  },
+  {
+    badge: '插件与 AI',
+    title: '原生插件页与悬浮助手',
+    description:
+      '动态插件表单与数据图表全程原生渲染，悬浮 AI 助手随时发起流式排障与检索。',
+    metrics: '原生 JSON UI · 流式 AI',
+    accent: 'from-violet-500/20 via-fuchsia-500/10 to-transparent',
+    iconPath:
+      'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z',
+  },
+]
+
+export const appReleaseArtifacts: AppReleaseArtifact[] = [
+  {
+    platform: 'iOS / iPadOS',
+    arch: 'SwiftUI · 无签名真机包',
+    packageHint: 'ios-unsigned.ipa',
+    badge: 'IPA',
+    accent: 'text-violet-300 bg-violet-500/15 border-violet-400/30',
+  },
+  {
+    platform: 'Android（主流）',
+    arch: 'ARM64-v8a 轻量精简版',
+    packageHint: 'android-arm64-v8a.apk',
+    badge: 'APK',
+    accent: 'text-emerald-300 bg-emerald-500/15 border-emerald-400/30',
+  },
+  {
+    platform: 'Android（通用）',
+    arch: 'arm64 / armv7 / x86_64 全架构',
+    packageHint: 'android-universal.apk',
+    badge: 'APK',
+    accent: 'text-teal-300 bg-teal-500/15 border-teal-400/30',
+  },
+  {
+    platform: 'HarmonyOS NEXT',
+    arch: '纯血 ArkTS · 无签名包',
+    packageHint: 'harmony-unsigned.hap',
+    badge: 'HAP',
+    accent: 'text-sky-300 bg-sky-500/15 border-sky-400/30',
+  },
+]
+
 export const coreFeatures: FeatureItem[] = [
   {
-    badge: 'V3 核心升级',
+    badge: '影音双栖',
     title: '影视与音乐双栖自动化',
     description:
       '统一支持电影、剧集、动漫与音乐订阅洗版，自动写入音频标签、封面与逐字歌词，硬链接时保护做种源文件。',
@@ -305,8 +678,8 @@ export const coreFeatures: FeatureItem[] = [
     badge: '流程编排',
     title: '可视化工作流编排',
     description:
-      '事件与定时双驱动，自由串联搜索、下载、整理与插件节点，支持社区工作流一键共享。',
-    tags: ['事件与定时驱动', '模块化动作节点', '工作流共享'],
+      '事件与定时双驱动，自由串联搜索、下载、整理与插件节点，支持社区工作流一键共享与原生移动端画布编辑。',
+    tags: ['事件与定时驱动', '模块化动作节点', 'Web 与原生画布'],
     span: 'normal',
     accent: 'from-amber-500/20 via-orange-500/10 to-transparent',
     iconPath:
@@ -314,10 +687,10 @@ export const coreFeatures: FeatureItem[] = [
   },
   {
     badge: '工程架构',
-    title: 'Rust 加速与高可靠底座',
+    title: 'Rust 加速与全端高可靠底座',
     description:
-      '基于 FastAPI + Vue 3 构建，Rust 扩展加速标题识别与索引解析；内置 Outbox 可靠队列、双数据库引擎与离线诊断。',
-    tags: ['Rust 高频解析加速', 'Outbox 可靠队列', '自动备份与 Doctor 诊断', 'PWA 与原生 iOS'],
+      '后端基于 FastAPI + Vue 3 与 Rust 扩展加速识别解析；移动端以 Rust 共享内核驱动三端全原生客户端，配合 Outbox 可靠队列与离线诊断。',
+    tags: ['Rust 服务端与端侧加速', 'Outbox 可靠队列', '自动备份与 Doctor 诊断', 'iOS · Android · 鸿蒙原生'],
     span: 'wide',
     accent: 'from-indigo-500/20 via-cyan-500/10 to-transparent',
     iconPath:
@@ -328,11 +701,11 @@ export const coreFeatures: FeatureItem[] = [
 export const aiHighlights = [
   {
     title: '工具调用与智能排障',
-    description: '一句话完成找片、加订阅、定位整理失败原因并自动重试。',
+    description: '一句话找片、加订阅、定位整理失败原因并自动重试。',
   },
   {
-    title: '多模态全渠道交互',
-    description: '支持 Web 全屏及微信、Telegram 语音图片对话，辅助日志诊断。',
+    title: '多端全渠道协同',
+    description: '支持 Web、三端原生 App 悬浮助手及微信、Telegram 语音图片对话。',
   },
   {
     title: 'Skills 技能扩展与巡检',
@@ -348,7 +721,7 @@ export const aiDemoTabs = [
   {
     id: 'chat',
     label: '智能助手对话',
-    filename: 'Agent Session · Web / Telegram / WeChat',
+    filename: 'Agent Session · Web / 三端原生 App / Telegram / WeChat',
     content: '',
   },
   {
@@ -390,7 +763,7 @@ export const pluginCapabilities = [
     iconPath: 'M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z',
   },
   {
-    title: 'V3 虚拟插件分身',
+    title: '虚拟插件分身',
     description: '单插件可派生多个独立实例，配置、数据与定时任务互不干扰。',
     iconPath: 'M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75',
   },
@@ -400,8 +773,8 @@ export const pluginCapabilities = [
     iconPath: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
   },
   {
-    title: '标准 SDK 与远程 UI',
-    description: '提供标准化 V3 SDK、Agent 工具注册与前端动态自定义页面能力。',
+    title: 'Web 与三端 App 原生适配',
+    description: '标准插件 SDK 与动态 JSON Schema 同步驱动 Web 远程组件与三端原生表单、图表数据页。',
     iconPath: 'M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5',
   },
 ]
@@ -411,7 +784,7 @@ export const featuredPlugins: PluginShowcaseCard[] = [
     name: '站点签到 & 数据统计',
     version: '站点养护',
     category: '自动化运维',
-    desc: '定时登录签到，汇总各站点上传下载量、做种体积与分享率趋势。',
+    desc: '定时登录签到，汇总各站点上传下载量、做种体积与分享率趋势，移动端同步环形图展示。',
     accent: 'text-sky-400 bg-sky-500/10 border-sky-400/20',
   },
   {
@@ -457,7 +830,7 @@ export const integrationGroups: IntegrationGroup[] = [
   {
     id: 'mediaservers',
     title: '媒体服务器与 NAS 影院',
-    subtitle: '入库自动刷新、在库同步与 Webhook 联动',
+    subtitle: '入库自动刷新、在库同步与三端直连浏览播放',
     items: [
       { name: 'Plex', role: '个人流媒体中心', icon: plexIcon, roundedIcon: true },
       { name: 'Emby', role: '家庭影院服务器', icon: embyIcon },
@@ -481,29 +854,15 @@ export const integrationGroups: IntegrationGroup[] = [
       { name: 'qBittorrent', role: '主流 BT/PT 下载器', icon: qbittorrentIcon },
       { name: 'Transmission', role: '轻量保种客户端', icon: transmissionIcon },
       { name: 'rTorrent', role: '高性能命令行下载', icon: rtorrentColorIcon },
-      {
-        name: '115 网盘',
-        role: '高速云盘整理',
-        svgPath:
-          'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z',
-      },
-      {
-        name: '阿里云盘',
-        role: '云端媒体管理',
-        svgPath:
-          'M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z',
-      },
+      { name: '115 网盘', role: '高速云盘整理', icon: u115Icon, roundedIcon: true },
+      { name: '阿里云盘', role: '云端媒体管理', icon: alipanIcon, roundedIcon: true },
+      { name: 'Rclone', role: '跨盘挂载与同步', icon: rcloneIcon, roundedIcon: true },
+      { name: 'SMB 共享', role: '局域网存储直连', icon: smbIcon, roundedIcon: true },
       {
         name: 'AList / OpenList',
         role: '多网盘聚合存储',
         svgPath:
           'M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776',
-      },
-      {
-        name: 'Rclone & SMB',
-        role: '跨盘同步与共享',
-        svgPath:
-          'M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75',
       },
     ],
   },
@@ -529,10 +888,10 @@ export const deploymentTabs: DeploymentTab[] = [
   {
     id: 'compose',
     label: 'Docker Compose',
-    badge: '官方推荐 · V3',
+    badge: '官方推荐',
     title: '单容器 Compose 部署',
     description:
-      '内置浏览器内核与进程守护，启动后访问网页向导即可初始化管理员账号。',
+      '内置浏览器内核与进程守护，启动后访问网页向导即可初始化管理员账号，并随时连接三端原生 App。',
     filename: 'docker-compose.yml',
     lang: 'yaml',
     code: `services:
@@ -627,11 +986,11 @@ moviepilot doctor           # 离线体检与备份恢复诊断`,
 
 export const ecosystemProjects: EcosystemProject[] = [
   {
-    name: 'MoviePilot iOS 客户端',
-    platform: 'iOS 16+ / Liquid Glass',
+    name: 'MoviePilot 三端原生客户端',
+    platform: 'iOS · Android · HarmonyOS NEXT',
     repo: 'jxxghp/MoviePilot-App',
     url: 'https://github.com/jxxghp/MoviePilot-App/releases/latest',
-    description: '官方原生客户端，支持桌面小组件、媒体播放与推送通知。',
+    description: '单仓三端全原生架构 + Rust 共享内核，支持全格式播放、3D 勋章与桌面小组件。',
     official: true,
   },
   {
@@ -653,7 +1012,7 @@ export const ecosystemProjects: EcosystemProject[] = [
     platform: '移动端 / Apple TV / 浏览器',
     repo: '社区周边生态合集',
     url: 'https://wiki.movie-pilot.org/zh/ecosystem',
-    description: '涵盖移动端、Apple TV 客户端与浏览器快捷订阅助手。',
+    description: '涵盖轻量化客户端、Apple TV 端与浏览器快捷订阅助手。',
   },
 ]
 
@@ -669,6 +1028,11 @@ export const repoMatrix = [
     url: 'https://github.com/jxxghp/MoviePilot-Frontend',
   },
   {
+    name: 'MoviePilot-App',
+    desc: 'iOS / Android / 鸿蒙三端全原生客户端',
+    url: 'https://github.com/jxxghp/MoviePilot-App',
+  },
+  {
     name: 'MoviePilot-Plugins',
     desc: '官方插件源码与市场索引',
     url: 'https://github.com/jxxghp/MoviePilot-Plugins',
@@ -677,11 +1041,6 @@ export const repoMatrix = [
     name: 'MoviePilot-Rust',
     desc: 'Rust 高性能解析加速模块',
     url: 'https://github.com/jxxghp/MoviePilot-Rust',
-  },
-  {
-    name: 'MoviePilot-App',
-    desc: 'iOS 原生移动客户端',
-    url: 'https://github.com/jxxghp/MoviePilot-App',
   },
   {
     name: 'MoviePilot-Wiki',

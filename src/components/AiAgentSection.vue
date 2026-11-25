@@ -1,5 +1,5 @@
 <template>
-  <section id="ai-agent" class="relative py-24 lg:py-32 scroll-mt-20 overflow-hidden border-y border-white/[0.06] bg-[#080c1b]/70">
+  <section id="ai-agent" class="relative py-24 lg:py-32 scroll-mt-20 overflow-hidden border-y border-white/[0.06] bg-[#070b18]/75">
     <!-- Subtle Accent Glow -->
     <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[420px] rounded-full bg-gradient-to-r from-violet-600/15 via-cyan-500/10 to-indigo-600/15 blur-[130px]"></div>
 
@@ -7,27 +7,31 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <!-- Left Description Column -->
         <div class="lg:col-span-5">
-          <div class="mp-section-badge mb-4">
+          <div v-reveal.fade class="mp-section-badge mb-4">
             <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
             <span>AI Agent · Skills · MCP</span>
           </div>
 
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-5">
+          <h2
+            v-reveal="{ variant: 'blur-up', delay: 70 }"
+            class="mp-display-heading text-3xl sm:text-4xl lg:text-5xl mb-5"
+          >
             懂上下文、会调工具的
             <span class="bg-gradient-to-r from-cyan-300 via-violet-300 to-indigo-300 bg-clip-text text-transparent">
               内置 AI 智能体与 MCP
             </span>
           </h2>
 
-          <p class="text-base text-slate-300/85 leading-relaxed mb-8">
+          <p v-reveal="{ variant: 'up', delay: 130 }" class="text-base text-slate-300/85 leading-relaxed mb-8">
             内嵌权限可控的多模态助手，可读取系统上下文、调用业务工具与 <code class="px-1.5 py-0.5 rounded bg-white/10 text-violet-200 font-mono text-xs">SKILL.md</code> 技能，并开放标准 HTTP MCP 接口。
           </p>
 
-          <div class="space-y-4 mb-8">
+          <div class="space-y-3.5 mb-8">
             <div
-              v-for="item in aiHighlights"
+              v-for="(item, idx) in aiHighlights"
               :key="item.title"
-              class="flex items-start gap-3.5 p-4 rounded-2xl bg-white/[0.025] border border-white/[0.07]"
+              v-reveal="{ variant: 'up', delay: 150 + idx * 75 }"
+              class="flex items-start gap-3.5 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-white/15 transition-colors"
             >
               <div class="w-6 h-6 rounded-lg bg-violet-500/20 border border-violet-400/30 flex items-center justify-center text-violet-300 shrink-0 mt-0.5">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,12 +45,12 @@
             </div>
           </div>
 
-          <div class="flex flex-wrap items-center gap-3">
+          <div v-reveal="{ variant: 'up', delay: 320 }" class="flex flex-wrap items-center gap-3">
             <a
               href="https://wiki.movie-pilot.org/zh/agent"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-white/[0.07] hover:bg-white/[0.12] border border-white/15 transition-colors"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 transition-colors"
             >
               <span>智能助手指南</span>
               <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,9 +72,9 @@
         </div>
 
         <!-- Right Interactive Console / Agent Preview -->
-        <div class="lg:col-span-7">
-          <div class="rounded-3xl p-2 bg-gradient-to-b from-white/[0.1] to-white/[0.02] border border-white/15 shadow-2xl">
-            <div class="rounded-2xl overflow-hidden bg-[#070a15] border border-white/[0.08]">
+        <div v-reveal="{ variant: 'scale', delay: 140 }" class="lg:col-span-7">
+          <div class="rounded-3xl p-2 bg-gradient-to-b from-white/[0.11] to-white/[0.02] border border-white/15 shadow-2xl">
+            <div class="rounded-2xl overflow-hidden bg-[#060913] border border-white/[0.08]">
               <!-- Tab Header -->
               <div class="flex flex-wrap items-center justify-between gap-2 px-4 py-3 bg-[#0c1122] border-b border-white/[0.07]">
                 <div class="flex items-center gap-1.5">
@@ -82,7 +86,7 @@
                     :class="[
                       'px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200',
                       activeTab === tab.id
-                        ? 'bg-violet-600 text-white shadow-sm'
+                        ? 'bg-white text-slate-950 shadow-sm'
                         : 'text-slate-400 hover:text-white hover:bg-white/[0.06]',
                     ]"
                   >
@@ -160,8 +164,8 @@
                   </div>
                 </div>
 
-                <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-slate-500">
-                  <span>Web 全屏 · 微信/Telegram 语音图片 · 本地 CLI</span>
+                <div class="pt-3 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+                  <span>Web 全屏 · 三端原生 App 悬浮助手 · 微信/Telegram · 本地 CLI</span>
                   <span class="text-emerald-400 font-mono">● Agent Ready</span>
                 </div>
               </div>

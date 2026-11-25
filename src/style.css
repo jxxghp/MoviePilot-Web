@@ -2,83 +2,250 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Apple 官网标志性指数衰减缓动：起速明快、落点轻盈丝滑 */
+  --apple-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --apple-ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --surface-canvas: #04060d;
+  --surface-elevated: #0a0e1b;
+}
+
 @layer base {
   html {
-    background-color: #060812;
+    background-color: var(--surface-canvas);
     color-scheme: dark;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background-color: #060812;
-    overflow-x: hidden;
+    background-color: var(--surface-canvas);
+    color: #f5f5f7;
+    /* 使用 clip 而非 hidden，防止阻断子章节内 Apple 风格 position: sticky 叙事吸顶 */
+    overflow-x: clip;
   }
 }
 
 @layer components {
-  /* 精细网格背景与渐隐遮罩 */
+  /* 影院级暗场细网格与径向柔化遮罩 */
   .bg-cinema-grid {
-    background-size: 56px 56px;
+    background-size: 64px 64px;
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    mask-image: radial-gradient(ellipse 85% 65% at 50% 25%, #000 35%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 25%, #000 35%, transparent 100%);
+      linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse 82% 62% at 50% 24%, #000 32%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 82% 62% at 50% 24%, #000 32%, transparent 100%);
   }
 
-  /* 现代磨砂玻璃卡片表面 */
+  /* Apple 风格暗色玻璃材质表面 */
   .mp-card {
     position: relative;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.018) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.055) 0%,
+      rgba(255, 255, 255, 0.018) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.09);
     box-shadow:
-      0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
-      0 20px 45px -20px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+      0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+      0 24px 48px -24px rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
     transition:
-      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 0.3s ease,
-      background-color 0.3s ease,
-      box-shadow 0.3s ease;
+      transform 0.55s var(--apple-ease),
+      border-color 0.35s ease,
+      background-color 0.35s ease,
+      box-shadow 0.55s var(--apple-ease);
   }
 
   .mp-card:hover {
+    transform: translateY(-4px);
     border-color: rgba(167, 139, 250, 0.32);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.065) 0%, rgba(255, 255, 255, 0.025) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.028) 100%
+    );
     box-shadow:
-      0 1px 0 0 rgba(255, 255, 255, 0.12) inset,
-      0 24px 56px -16px rgba(124, 58, 237, 0.18),
-      0 20px 45px -20px rgba(0, 0, 0, 0.8);
+      0 1px 0 0 rgba(255, 255, 255, 0.14) inset,
+      0 28px 64px -18px rgba(124, 58, 237, 0.2),
+      0 20px 44px -20px rgba(0, 0, 0, 0.85);
   }
 
-  /* 章节徽章 */
+  /* 克制高级的 Apple 产品段面板容器 */
+  .mp-apple-surface {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(13, 17, 32, 0.72) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+      0 32px 80px -28px rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+  }
+
+  /* 章节细胶囊徽章 */
   .mp-section-badge {
-    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide uppercase
-      bg-violet-500/10 text-violet-300 border border-violet-400/20;
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase
+      bg-white/[0.05] text-slate-200 border border-white/[0.12] backdrop-blur-md;
+  }
+
+  /* Apple 风格大标题紧字距排版 */
+  .mp-display-heading {
+    @apply font-bold tracking-[-0.03em] text-[#f5f5f7] leading-[1.08];
+  }
+
+  /* 高级银紫流光文字渐变 */
+  .mp-apple-gradient-text {
+    background: linear-gradient(120deg, #ffffff 10%, #d8ccff 48%, #7dd3fc 92%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* 真机钛金属质感边框外框 */
+  .mp-phone-shell {
+    position: relative;
+    border-radius: 2.75rem;
+    padding: 8px;
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(148, 163, 184, 0.14) 36%,
+      rgba(30, 41, 59, 0.55) 72%,
+      rgba(255, 255, 255, 0.18) 100%
+    );
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.12),
+      0 42px 96px -24px rgba(0, 0, 0, 0.92),
+      0 18px 40px -16px rgba(99, 102, 241, 0.22);
+  }
+
+  .mp-phone-screen {
+    position: relative;
+    border-radius: 2.25rem;
+    overflow: hidden;
+    background-color: #05070e;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.85) inset;
   }
 }
 
-/* 优雅的自定义滚动条 */
+/* ==========================================================================
+   类 Apple 官网滚动入场动效系统（v-reveal）
+   只使用合成层 transform / opacity / filter，保障 60/120fps 顺滑体验
+   ========================================================================== */
+.mp-reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition-property: opacity, transform, filter;
+  transition-duration: var(--reveal-duration, 900ms);
+  transition-timing-function: var(--apple-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.mp-reveal--up {
+  transform: translate3d(0, var(--reveal-distance, 38px), 0) scale(0.985);
+}
+
+.mp-reveal--blur-up {
+  transform: translate3d(0, var(--reveal-distance, 42px), 0) scale(0.975);
+  filter: blur(8px);
+}
+
+.mp-reveal--scale {
+  transform: translate3d(0, var(--reveal-distance, 34px), 0) scale(0.92);
+}
+
+.mp-reveal--left {
+  transform: translate3d(calc(var(--reveal-distance, 44px) * -1), 0, 0);
+}
+
+.mp-reveal--right {
+  transform: translate3d(var(--reveal-distance, 44px), 0, 0);
+}
+
+.mp-reveal--fade {
+  transform: translate3d(0, 12px, 0);
+}
+
+.mp-reveal.mp-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+/* 首屏加载即触发的 Apple 开幕交错动效 */
+@keyframes heroRiseIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.985);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.mp-hero-enter {
+  opacity: 0;
+  animation: heroRiseIn 0.95s var(--apple-ease) forwards;
+  animation-delay: var(--hero-delay, 0ms);
+}
+
+/* 章节间柔和流光分割线 */
+.mp-hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(167, 139, 250, 0.24) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    transparent 100%
+  );
+}
+
+/* 细微无障碍回退：系统开启减少动态效果时立即可见、关闭位移和模糊 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mp-reveal,
+  .mp-hero-enter {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* 优雅的深色自定义滚动条 */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #060812;
+  background: #04060d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.22);
+  background: rgba(148, 163, 184, 0.24);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(167, 139, 250, 0.45);
+  background: rgba(167, 139, 250, 0.48);
 }

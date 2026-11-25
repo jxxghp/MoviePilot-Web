@@ -9,9 +9,11 @@ export default {
     extend: {
       fontFamily: {
         sans: [
-          'Inter',
           '-apple-system',
           'BlinkMacSystemFont',
+          '"SF Pro Display"',
+          '"SF Pro Text"',
+          'Inter',
           '"PingFang SC"',
           '"Hiragino Sans GB"',
           '"Microsoft YaHei"',
@@ -19,8 +21,8 @@ export default {
           'sans-serif',
         ],
         mono: [
-          '"JetBrains Mono"',
           '"SF Mono"',
+          '"JetBrains Mono"',
           'Menlo',
           'Monaco',
           'Consolas',
@@ -29,14 +31,15 @@ export default {
       },
       colors: {
         obsidian: {
-          950: '#060812',
-          900: '#0b0f1f',
+          950: '#04060d',
+          900: '#0a0e1b',
           800: '#11172e',
         },
       },
       animation: {
         'aurora-slow': 'aurora 18s ease-in-out infinite alternate',
         'pulse-soft': 'pulseSoft 4s ease-in-out infinite',
+        'float-slow': 'floatSlow 7s ease-in-out infinite',
       },
       keyframes: {
         aurora: {
@@ -47,6 +50,10 @@ export default {
         pulseSoft: {
           '0%, 100%': { opacity: '0.55' },
           '50%': { opacity: '1' },
+        },
+        floatSlow: {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
+          '50%': { transform: 'translate3d(0, -10px, 0)' },
         },
       },
     },

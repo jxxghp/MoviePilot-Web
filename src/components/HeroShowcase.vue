@@ -1,10 +1,11 @@
 <template>
-  <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
-    <!-- Atmospheric Aurora Glows -->
+  <section class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+    <!-- Atmospheric Aurora Glows with gentle scroll parallax -->
     <div class="pointer-events-none absolute inset-0 overflow-hidden">
       <div class="bg-cinema-grid absolute inset-0"></div>
       <div
-        class="animate-aurora-slow absolute -top-40 left-1/2 -translate-x-1/2 w-[960px] h-[520px] rounded-full bg-gradient-to-tr from-violet-600/25 via-indigo-600/20 to-sky-500/15 blur-[130px]"
+        :style="auroraParallaxStyle"
+        class="animate-aurora-slow absolute -top-44 left-1/2 -translate-x-1/2 w-[980px] h-[540px] rounded-full bg-gradient-to-tr from-violet-600/25 via-indigo-600/20 to-sky-500/15 blur-[135px]"
       ></div>
       <div
         class="absolute top-[42%] -left-48 w-[420px] h-[420px] rounded-full bg-fuchsia-600/10 blur-[120px]"
@@ -15,20 +16,19 @@
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Centered Hero Copy -->
+      <!-- Centered Hero Copy (Apple 首屏开幕交错入场) -->
       <div class="max-w-4xl mx-auto text-center">
         <!-- Announcement Pill -->
         <a
-          href="https://wiki.movie-pilot.org/zh/v3"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2.5 pl-2.5 pr-3.5 py-1 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-xs sm:text-sm text-slate-200 mb-8 transition-all duration-200 group shadow-lg shadow-black/20"
+          href="#native-app"
+          style="--hero-delay: 0ms"
+          class="mp-hero-enter inline-flex items-center gap-2.5 pl-2.5 pr-3.5 py-1 rounded-full bg-white/[0.045] hover:bg-white/[0.09] border border-white/12 text-xs sm:text-sm text-slate-200 mb-8 transition-all duration-300 group shadow-lg shadow-black/25 backdrop-blur-md"
         >
-          <span class="px-2 py-0.5 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 text-[11px] font-semibold text-white">
-            V3 架构
+          <span class="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 text-[11px] font-semibold text-white">
+            全端原生
           </span>
           <span class="text-slate-300 group-hover:text-white transition-colors">
-            影视与音乐自动化 · 统一媒体身份 · AI 与 MCP
+            影视与音乐自动化 · iOS / Android / 鸿蒙三端全原生客户端 · AI & MCP
           </span>
           <svg
             class="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 group-hover:text-white transition-all"
@@ -41,23 +41,32 @@
         </a>
 
         <!-- Headline -->
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12] mb-6">
+        <h1
+          style="--hero-delay: 90ms"
+          class="mp-hero-enter mp-display-heading text-4xl sm:text-6xl lg:text-[4.5rem] mb-6"
+        >
           新一代智能个人媒体库
-          <span class="block mt-2 bg-gradient-to-r from-violet-300 via-indigo-300 to-sky-300 bg-clip-text text-transparent">
+          <span class="block mt-2.5 mp-apple-gradient-text">
             全链路自动化管理中枢
           </span>
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-base sm:text-lg lg:text-xl text-slate-300/90 max-w-2xl mx-auto leading-relaxed mb-10">
-          面向<strong class="font-semibold text-white">电影、剧集、动漫与音乐</strong>的一站式自动化管理工具，打通订阅追更、择优下载、无损整理与 AI 协同。
+        <p
+          style="--hero-delay: 180ms"
+          class="mp-hero-enter text-base sm:text-lg lg:text-xl text-slate-300/85 max-w-2xl mx-auto leading-relaxed mb-10"
+        >
+          面向<strong class="font-semibold text-white">电影、剧集、动漫与音乐</strong>的一站式自动化平台，打通订阅追更、择优下载、无损整理、AI 协同与<strong class="font-semibold text-white">三端全原生 App</strong> 随身体验。
         </p>
 
         <!-- Primary & Secondary CTAs -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <div
+          style="--hero-delay: 260ms"
+          class="mp-hero-enter flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14"
+        >
           <a
             href="#installation"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl font-semibold text-slate-950 bg-white hover:bg-slate-100 shadow-[0_0_40px_-8px_rgba(255,255,255,0.45)] transition-all duration-200 group"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl font-semibold text-slate-950 bg-white hover:bg-slate-100 shadow-[0_0_45px_-10px_rgba(255,255,255,0.5)] transition-all duration-300 hover:scale-[1.02] group"
           >
             <svg class="w-5 h-5 text-violet-700 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -66,73 +75,81 @@
           </a>
 
           <a
+            href="#native-app"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl font-semibold text-white bg-white/[0.07] hover:bg-white/[0.13] border border-white/15 backdrop-blur-md transition-all duration-300 hover:scale-[1.02]"
+          >
+            <svg class="w-5 h-5 text-sky-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+            </svg>
+            <span>探索三端原生 App</span>
+          </a>
+
+          <a
             href="https://wiki.movie-pilot.org/"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl font-semibold text-white bg-white/[0.06] hover:bg-white/[0.11] border border-white/15 backdrop-blur-md transition-all duration-200"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-medium text-slate-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 transition-all duration-200"
           >
             <svg class="w-5 h-5 text-violet-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
-            <span>浏览官方 Wiki</span>
-          </a>
-
-          <a
-            href="https://github.com/jxxghp/MoviePilot"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-medium text-slate-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 transition-all duration-200"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-            <span>源码仓库</span>
+            <span>官方 Wiki</span>
           </a>
         </div>
 
         <!-- Core Architectural Metrics -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mb-16">
+        <div
+          style="--hero-delay: 340ms"
+          class="mp-hero-enter grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mb-16"
+        >
           <div
             v-for="stat in heroStats"
             :key="stat.value"
-            class="px-4 py-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-md text-center"
+            class="px-4 py-4 rounded-2xl bg-white/[0.035] border border-white/[0.08] backdrop-blur-xl text-center hover:border-white/20 transition-colors"
           >
             <div class="text-base sm:text-lg font-bold text-white tracking-tight">{{ stat.value }}</div>
-            <div class="text-xs text-slate-400 mt-0.5">{{ stat.label }}</div>
+            <div class="text-xs text-slate-400 mt-1">{{ stat.label }}</div>
           </div>
         </div>
       </div>
 
-      <!-- Grand Interactive Product Showcase -->
+      <!-- Grand Interactive Product Showcase (滚动驱动 3D 舒展视窗) -->
       <div
         id="showcase"
+        ref="showcaseFrameRef"
         class="scroll-mt-28 max-w-6xl mx-auto"
         @mouseenter="isPaused = true"
         @mouseleave="isPaused = false"
       >
         <!-- Interactive Feature Tab Selector -->
-        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-6">
+        <div
+          v-reveal="{ variant: 'up', delay: 60 }"
+          class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-6"
+        >
           <button
             v-for="(slide, idx) in showcaseSlides"
             :key="slide.id"
             type="button"
             @click="selectSlide(idx)"
             :class="[
-              'relative px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 border',
+              'relative px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border',
               currentSlide === idx
-                ? 'bg-gradient-to-r from-violet-600/90 to-indigo-600/90 text-white border-violet-400/40 shadow-lg shadow-violet-600/25'
-                : 'bg-white/[0.03] text-slate-400 hover:text-white hover:bg-white/[0.07] border-white/[0.08]',
+                ? 'bg-white text-slate-950 border-white shadow-lg shadow-white/15'
+                : 'bg-white/[0.035] text-slate-400 hover:text-white hover:bg-white/[0.08] border-white/[0.08]',
             ]"
           >
             <span>{{ slide.tab }}</span>
           </button>
         </div>
 
-        <!-- macOS-Inspired Browser Frame -->
-        <div class="relative rounded-2xl sm:rounded-3xl p-2 sm:p-3 bg-gradient-to-b from-white/[0.11] to-white/[0.03] border border-white/15 shadow-[0_32px_90px_-20px_rgba(0,0,0,0.9),0_0_80px_-25px_rgba(124,58,237,0.3)] backdrop-blur-xl">
-          <div class="rounded-xl sm:rounded-2xl overflow-hidden bg-[#090d1a] border border-white/[0.08]">
+        <!-- macOS-Inspired Browser Frame with Scroll-Scrubbed Perspective Reveal -->
+        <div
+          :style="showcaseStageStyle"
+          class="will-change-transform relative rounded-2xl sm:rounded-3xl p-2 sm:p-3 bg-gradient-to-b from-white/[0.12] to-white/[0.03] border border-white/15 shadow-[0_36px_100px_-22px_rgba(0,0,0,0.95),0_0_85px_-28px_rgba(124,58,237,0.3)] backdrop-blur-xl"
+        >
+          <div class="rounded-xl sm:rounded-2xl overflow-hidden bg-[#080b16] border border-white/[0.08]">
             <!-- Window Top Chrome Bar -->
-            <div class="flex items-center justify-between px-4 py-2.5 bg-[#0c1122] border-b border-white/[0.07]">
+            <div class="flex items-center justify-between px-4 py-2.5 bg-[#0c1020] border-b border-white/[0.07]">
               <div class="flex items-center gap-2">
                 <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
                 <span class="w-3 h-3 rounded-full bg-amber-400/80"></span>
@@ -183,12 +200,12 @@
 
             <!-- Unobstructed 16:9 Screenshot Viewport -->
             <div
-              class="relative aspect-[16/9] bg-[#070a14] overflow-hidden cursor-zoom-in group"
+              class="relative aspect-[16/9] bg-[#060912] overflow-hidden cursor-zoom-in group"
               @click="lightboxOpen = true"
             >
               <transition
                 mode="out-in"
-                enter-active-class="transition duration-300 ease-out"
+                enter-active-class="transition duration-350 ease-out"
                 enter-from-class="opacity-0 scale-[0.992]"
                 enter-to-class="opacity-100 scale-100"
                 leave-active-class="transition duration-200 ease-in"
@@ -233,7 +250,7 @@
             </div>
 
             <!-- Compact Screenshot Caption & Highlights Bar -->
-            <div class="px-5 py-5 sm:px-7 sm:py-6 bg-gradient-to-b from-[#0d1224] to-[#090d1a] border-t border-white/[0.06]">
+            <div class="px-5 py-5 sm:px-7 sm:py-6 bg-gradient-to-b from-[#0c1122] to-[#080b16] border-t border-white/[0.06]">
               <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
                 <div class="lg:col-span-7">
                   <div class="flex items-center gap-2.5 mb-2">
@@ -281,7 +298,7 @@
       >
         <div
           v-if="lightboxOpen"
-          class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
+          class="fixed inset-0 z-[100] bg-black/92 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8"
           @click.self="lightboxOpen = false"
         >
           <div class="relative max-w-7xl w-full">
@@ -340,10 +357,35 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { heroStats, showcaseSlides } from '../data/siteContent'
+import { useScrollProgress } from '../composables/useScrollProgress'
 
 const currentSlide = ref(0)
 const isPaused = ref(false)
 const lightboxOpen = ref(false)
+const showcaseFrameRef = ref<HTMLElement | null>(null)
+
+const { enterProgress, centeredProgress } = useScrollProgress(showcaseFrameRef)
+
+/**
+ * 类 Apple 产品主视窗滚动立正效果：
+ * 视窗刚滑入阅读区时呈轻微 3D 仰角与微缩，随着用户下滚平滑舒展至完全平视。
+ */
+const showcaseStageStyle = computed(() => {
+  const easeOut = 1 - Math.pow(1 - enterProgress.value, 3)
+  const scale = 0.955 + easeOut * 0.045
+  const rotateX = (1 - easeOut) * 5.2
+  const translateY = (1 - easeOut) * 26
+  return {
+    transform: `perspective(1400px) translate3d(0, ${translateY.toFixed(1)}px, 0) rotateX(${rotateX.toFixed(2)}deg) scale(${scale.toFixed(4)})`,
+  }
+})
+
+const auroraParallaxStyle = computed(() => {
+  const offset = centeredProgress.value * 32
+  return {
+    transform: `translate3d(-50%, ${offset.toFixed(1)}px, 0)`,
+  }
+})
 
 const activeSlide = computed(() => showcaseSlides[currentSlide.value])
 
